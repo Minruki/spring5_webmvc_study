@@ -5,6 +5,7 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 public class ChangePwdCommandValidator implements Validator {
+
 	@Override
 	public boolean supports(Class<?> clazz) {
 		return ChangePwdCommand.class.isAssignableFrom(clazz);
@@ -13,7 +14,7 @@ public class ChangePwdCommandValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "currentPasswordf", "required");
-		ValidationUtils.rejectIfEmpty(errors, "newPassword", "required");
-
+        ValidationUtils.rejectIfEmpty(errors, "newPassword", "required");
 	}
+
 }
